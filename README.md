@@ -4,7 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Steps
 
-Note: Json data server is used to mock the backend
+   Note: 1. Json data server is used to mock the backend
+         2. Angular version - 8
 1. Run npm install
 2. json-server --watch db.json
 3. Login with test credentials specified in db.json
