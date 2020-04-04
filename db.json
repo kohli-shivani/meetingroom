@@ -1,0 +1,114 @@
+{
+  "users": [
+    {
+      "username": "test1",
+      "password": "test1"
+    },
+    {
+      "username": "test2",
+      "password": "test2"
+    }
+  ],
+  "meetingrooms": [
+    {
+      "roomId": 1,
+      "roomName": "Meeting1"
+    },
+    {
+      "roomId": 2,
+      "roomName": "Meeting2"
+    },
+    {
+      "roomId": 3,
+      "roomName": "Meeting3"
+    },
+    {
+      "roomId": 4,
+      "roomName": "Meeting4"
+    },
+    {
+      "roomId": 5,
+      "roomName": "Meeting5"
+    },
+    {
+      "roomId": 6,
+      "roomName": "Meeting6"
+    },
+    {
+      "roomId": 7,
+      "roomName": "Meeting7"
+    },
+    {
+      "roomId": 8,
+      "roomName": "Meeting8"
+    },
+    {
+      "roomId": 9,
+      "roomName": "Meeting9"
+    },
+    {
+      "roomId": 10,
+      "roomName": "Meeting10"
+    }
+  ],
+  "timeslots": [
+    {
+      "slotId": 1,
+      "slotName": "9am-10am"
+    },
+    {
+      "slotId": 2,
+      "slotName": "10am-11am"
+    },
+    {
+      "slotId": 3,
+      "slotName": "11am-12pm"
+    },
+    {
+      "slotId": 4,
+      "slotName": "12pm-1pm"
+    },
+    {
+      "slotId": 5,
+      "slotName": "1pm-2pm"
+    },
+    {
+      "slotId": 6,
+      "slotName": "2pm-3pm"
+    },
+    {
+      "slotId": 7,
+      "slotName": "3pm-4pm"
+    },
+    {
+      "slotId": 8,
+      "slotName": "4pm-5pm"
+    },
+    {
+      "slotId": 9,
+      "slotName": "5pm-6pm"
+    }
+  ],
+  "slots": [
+    {
+      "roomId": 1,
+      "bookingDate": "2020-04-04",
+      "slotId": 1,
+      "userDetails": {
+        "username": "tss",
+        "agenda": "sdad"
+      },
+      "id": 1
+    },
+    {
+      "roomId": 1,
+      "bookingDate": "2020-04-06",
+      "slotId": 4,
+      "userDetails": {
+        "username": "test1",
+        "agenda": "test"
+      },
+      "id": 2
+    }
+  ]
+}

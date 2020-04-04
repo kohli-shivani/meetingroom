@@ -1,0 +1,52 @@
+<div *ngIf="dataloaded == true" class="paddingAll" fxLayoutGap="1rem" fxFlexFill fxLayout="column">
+  <div fxLayout="row" >
+    <button class="btn btn-primary" fxFlex="20%" (click)="openAddModal()">Schedule Meeting</button>
+  </div>
+  <form fxLayout="row" fxLayoutGap="1rem" [formGroup]="viewMeetingForm" (ngSubmit)="getMeetingBookings()">
+    <div fxFlex="30%" class="form-group fullWidth">
+      <span class="formLabel">Date*</span>
+      <input [min]="min" [max]="max" formControlName="meetingdate" [ngClass]="{ 'invalid-input-box': submitted && f.meetingdate.errors }" class="form-control" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" name="meetingdate" [owlDateTimeFilter]="myFilter">
+      <owl-date-time readonly [pickerType]="'calendar'" #dt1></owl-date-time>
+      <div *ngIf="submitted && f.meetingdate.errors" class="invalid-input-text">
+          <div *ngIf="f.meetingdate.errors.required">Date is required</div>
+      </div>
+    </div>
+    <div fxFlex="20%" fxLayoutAlign="center center">
+      <button class="fullWidth btn btn-primary" mat-raised-button color="primary">View Meetings</button>
+    </div>
+  </form>
+
+  <form fxLayout="row" fxLayoutGap="1rem" [formGroup]="filterMeetingForm">
+    <div fxFlex="30%" class="form-group fullWidth">
+      <span class="formLabel">Meeting Room*</span>
+      <select class="form-control" name="meetingroom" formControlName="meetingroom">
+      <option value="all" selected>All</option>
+      <option *ngFor="let room of roomDetails" value="{{room.roomId}}">{{room.roomName}}</option>
+      </select>
+      <div *ngIf="submitted && f2.meetingroom.errors" class="invalid-input-text">
+          <div *ngIf="f2.meetingroom.errors.required">Meeting room is required</div>
+      </div>
+    </div>
+  </form>
+
+  <table id="meeting-table" class="table table-responsive">
+    <thead>
+      <th></th>
+      <th *ngFor="let head of displayedColumns">{{head.slotName}}</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let room of roomDetails">
+        <ng-container *ngIf="f2.meetingroom.value == 'all' || f2.meetingroom.value == room.roomId">
+          <td>{{room.roomName}}</td>
+          <ng-container *ngFor="let booking of room.bookingDetails">
+            <td style="cursor: pointer;" (click)="openManageModal(booking,i)" *ngIf="booking.userDetails" class="red">Booked</td>
+            <td *ngIf="!booking.userDetails" class="green">Available</td>
+          </ng-container>
+        </ng-container>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="red" *ngIf="dataloaded == false" fxLayout="row" fxLayoutAlign="center center">  
+  <h4>Something went wrong please try again later</h4>
+</div>

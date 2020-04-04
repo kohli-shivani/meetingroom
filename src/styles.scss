@@ -1,0 +1,47 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import "./assets/scss/variables";
+
+html,body{
+    min-height: calc(100% - 1em);
+    height:calc(100% - 1em);
+}
+
+body{
+    margin:0;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+mat-icon{
+    cursor: pointer;
+}
+
+.fullWidth{
+    width: 100%;
+}
+
+#footerDivider::before{
+    border-bottom: 1px solid $secondary-grey;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    content: "";
+}
+
+.paddingAll{
+    padding:2rem;
+}
+
+.invalid-input-text {
+    margin-left: 0.7rem;
+}
+.invalid-input-text{
+    margin-left: 0.7rem;
+    color:$primary-red;
+    margin-top: .25rem;
+    font-size: 80%;
+    width: 100%;
+}
+

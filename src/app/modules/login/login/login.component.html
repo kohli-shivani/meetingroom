@@ -1,0 +1,33 @@
+<div fxLayout="row" fxLayoutAlign="center center">
+    <mat-card fxFlex="30%"  fxLayout="column" fxLayoutGap="2rem" class="card">
+            <mat-card-title class="textCenter">Login</mat-card-title>
+            <mat-card-content>
+                <form fxLayout="column" fxLayoutGap="1rem" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group fullWidth">
+                        <span class="formLabel">Username*</span>
+                        <input type="text" formControlName="username" [ngClass]="{ 'invalid-input-box': submitted && f.username.errors }" class="form-control" name="username">
+                        <div *ngIf="submitted && f.username.errors" class="invalid-input-text">
+                            <div *ngIf="f.username.errors.required">UserName is required</div>
+                            <div *ngIf="f.username.errors.pattern">Please enter valid username</div>
+                        </div>
+                    </div>
+               
+                    <div class="form-group fullWidth">
+                        <span class="formLabel">Password*</span>
+                        <input type="password" formControlName="password" [ngClass]="{ 'invalid-input-box': submitted && f.password.errors }" class="form-control" name="password">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-input-text">
+                            <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
+                    </div>
+
+            <div fxLayout="row" fxLayout.xs="column">
+                <div fxFlex="50%">
+                    <button class="fullWidth btn btn-primary"  mat-raised-button color="primary">Login</button>
+                </div>
+            </div>
+        </form>
+            </mat-card-content>
+    </mat-card>
+</div>
+
+

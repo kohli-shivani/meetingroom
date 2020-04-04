@@ -1,0 +1,8 @@
+<div class="paddingTB bg" fxLayout="row" fxLayoutAlign="center center">
+  <div fxLayoutAlign="center" fxFlex>
+    <h2>Meeting Room Booking</h2>
+  </div>
+  <div *ngIf="showLogout == true">
+    <mat-icon (click)="logout()" svgIcon="logout"></mat-icon>
+  </div>
+</div>

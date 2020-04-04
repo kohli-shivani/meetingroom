@@ -1,0 +1,18 @@
+<div fxLayout="column" fxLayoutGap="1rem">
+    <div fxLayout="row" class="dialog-header">
+        <div fxFlex class="black-text-small">Manage Meeting</div>
+        <mat-icon (click)="closeDialog()" svgIcon="close"></mat-icon>
+    </div>
+    <div mat-dialog-content>
+        <div fxLayout="column" fxLayoutGap="2rem">
+            <div fxLayout="column">
+                <div>Username: {{bookingdetails.username}}</div>
+                <div>Agenda: {{bookingdetails.agenda}}</div>
+            </div>
+            <div fxLayout="row">
+                <button [disabled]="disabled" fxFlex="30%" (click)="deleteMeeting()" class="fullWidth btn btn-primary" mat-raised-button color="primary">Delete Meeting</button>
+            </div>
+        </div>
+
+    </div>
+</div>

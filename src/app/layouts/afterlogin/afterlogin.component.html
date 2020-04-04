@@ -1,0 +1,12 @@
+<div fxFlexFill fxLayout="column">
+    <app-header [showLogout]="true"></app-header>
+    <div fxLayout="column" fxFlex>
+        <div  fxLayout="column" fxFlex>
+            <router-outlet></router-outlet>
+        </div>
+        <div id="footerDivider" fxLayout="column">
+            <app-footer fxLayoutAlign="center center"></app-footer>
+        </div>
+
+    </div>
+</div>

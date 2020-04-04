@@ -1,0 +1,65 @@
+<div fxLayout="column" fxLayoutGap="1rem">
+    <div fxLayout="row" class="dialog-header">
+        <div fxFlex class="black-text-small">Schedule Meeting</div>
+        <mat-icon (click)="closeDialog()" svgIcon="close"></mat-icon>
+    </div>
+    <div mat-dialog-content>
+                <form fxLayout="column" fxLayoutGap="1rem" [formGroup]="addMeetingForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group fullWidth">
+                                <span class="formLabel">Username*</span>
+                                <input readonly type="text" formControlName="username" [ngClass]="{ 'invalid-input-box': submitted && f.username.errors }" class="form-control" name="username">
+                                <div *ngIf="submitted && f.username.errors" class="invalid-input-text">
+                                    <div *ngIf="f.username.errors.required">UserName is required</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group fullWidth">
+                                <span class="formLabel">Meeting Room*</span>
+                                <select class="form-control" name="meetingroom" formControlName="meetingroom">
+                                <option *ngFor="let room of meetingroomOptions" value="{{room.roomId}}">{{room.roomName}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.meetingroom.errors" class="invalid-input-text">
+                                    <div *ngIf="f.meetingroom.errors.required">Meeting room is required</div>
+                                </div>
+                            </div>
+                       
+                            <div class="form-group fullWidth">
+                                <span class="formLabel">Agenda*</span>
+                                <input type="text" formControlName="meetingagenda" [ngClass]="{ 'invalid-input-box': submitted && f.meetingagenda.errors }" class="form-control" name="meetingagenda">
+                                <div *ngIf="submitted && f.meetingagenda.errors" class="invalid-input-text">
+                                    <div *ngIf="f.meetingagenda.errors.required">Agenda is required</div>
+                                </div>
+                            </div>
+
+                            <div class="form-group fullWidth">
+                                <span class="formLabel">Meeting Date*</span>
+                                <input  [min]="min" [max]="max" formControlName="meetingdate" [ngClass]="{ 'invalid-input-box': submitted && f.meetingdate.errors }" class="form-control" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" name="meetingdate" [owlDateTimeFilter]="myFilter">
+                                <owl-date-time readonly [pickerType]="'calendar'" #dt1></owl-date-time>
+                                <div *ngIf="submitted && f.meetingdate.errors" class="invalid-input-text">
+                                    <div *ngIf="f.meetingdate.errors.required">Meeting date is required</div>
+                                </div>
+                            </div>
+
+                            
+           
+                            <div class="form-group fullWidth">
+                                <span class="formLabel">Meeting Time*</span>
+                                <select class="form-control" name="meetingtime" formControlName="meetingtime">
+                                <option *ngFor="let slot of meetingslotOptions" value="{{slot.slotId}}">{{slot.slotName}}</option>
+                                </select>
+                                <div *ngIf="submitted && f.meetingtime.errors" class="invalid-input-text">
+                                    <div *ngIf="f.meetingtime.errors.required">Meeting Time is required</div>
+                                </div>
+                            </div>
+           
+
+                    <div fxLayout="row" fxLayout.xs="column">
+                        <div fxFlex="50%">
+                            <button class="fullWidth btn btn-primary"  mat-raised-button color="primary">Schedule</button>
+                        </div>
+                    </div>
+                </form>
+    </div>
+</div>
+
+
